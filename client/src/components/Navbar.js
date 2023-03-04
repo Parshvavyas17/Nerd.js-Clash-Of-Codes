@@ -31,7 +31,7 @@ const Navbar = () => {
         <div className="flex justify-end">
           <ul className="flex justify-end p-6 font-bold text-xl">
             <li className="mr-6">
-              <a className="text-[#1E2749] hover:text-lightgreen" href="/SignUp">
+              <a className="text-[#1E2749] hover:text-lightgreen" href="/signUp">
                 Sign Up
               </a>
             </li>
