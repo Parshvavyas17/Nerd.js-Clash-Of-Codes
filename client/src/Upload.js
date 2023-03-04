@@ -39,7 +39,8 @@ const Upload = () => {
           })
           .then((res) => {
             console.log(res);
-            window.location.href = res.url;
+            if (res.url === "No Face Detected :(") alert("No face detected");
+            else window.location.href = res.url;
           })
           .catch((error) => console.log(error));
       })
