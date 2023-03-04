@@ -31,12 +31,12 @@ const Navbar = () => {
         <div className="flex justify-end">
           <ul className="flex justify-end p-6 font-bold text-xl">
             <li className="mr-6">
-              <a className="text-[#1E2749] hover:text-lightgreen" href="#">
+              <a className="text-[#1E2749] hover:text-lightgreen" href="/SignUp">
                 Sign Up
               </a>
             </li>
             <li className="mr-6">
-              <a className="text-[#1E2749] hover:text-lightgreen" href="#">
+              <a className="text-[#1E2749] hover:text-lightgreen" href="/login">
                 Login
               </a>
             </li>
