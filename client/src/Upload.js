@@ -27,11 +27,15 @@ const Upload = () => {
         const Data2 = new FormData();
         Data2.append("url", data.url);
         console.log("Data2: ", Data2);
-        fetch("http://127.0.0.1:8000/api/img/detect", {
+        fetch("http://127.0.0.1:8000/api/img/detect" ,{
           method: "POST",
-          body: data.url,
+          // mode: "no-cors",
+          cache: "no-cache",
+          
+          body: {url: data.url},
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
           },
         })
           .then((response) => {
