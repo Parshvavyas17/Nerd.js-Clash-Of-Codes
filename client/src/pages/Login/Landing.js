@@ -1,52 +1,56 @@
 import React from 'react'
 import Navbar from '../../components/Navbar';
+import face from '../../assets/face detect.webp'
+import gender from '../../assets/gender detect.png'
+import age from '../../assets/age.avif'
+import old from '../../assets/how old.jpg'
 
 function Landing() {
     return (
         <div className='bg-[#E4D9FF] h-full'>
             <Navbar />
-            <div className='grid grid-cols-2 gap-3 p-8'>
-                <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden m-6 cursor-pointer p-8">
+            <div className='grid grid-cols-2 gap-2 p-8'>
+                <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden m-6  p-8 hover:bg-gray-100">
                     <div className="md:flex">
                         <div className="md:flex-shrink-0">
-                            <img className="h-48 w-full object-cover md:w-48" src="https://source.unsplash.com/random" alt="Card image" />
+                            <img className="h-48 w-full object-cover md:w-48" src={face} alt="Card image" />
                         </div>
                         <div className="p-8">
-                            <div className="uppercase tracking-wide text-sm text-[#4051A3] font-bold">Detect Face</div>
-                            <a href="#" className="block mt-1 text-lg leading-tight text-black hover:underline">You can upload a file and we can detect the Face for you</a>
+                            <div className="uppercase tracking-wide text-lg text-[#4051A3] font-bold">Detect Face</div>
+                            <p className="text-lg font-semibold">You can upload a file and we can detect the Face for you</p>
                         </div>
                     </div>
                 </div>
-                <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden m-6 cursor-pointer p-8">
+                <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden m-6   hover:bg-gray-100 p-8">
                     <div className="md:flex">
                         <div className="md:flex-shrink-0">
-                            <img className="h-48 w-full object-cover md:w-48" src="https://source.unsplash.com/random" alt="Card image" />
+                            <img className="h-48 w-full object-cover md:w-48" src={gender} alt="Card image" />
                         </div>
                         <div className="p-8">
-                            <div className="uppercase tracking-wide text-sm text-[#4051A3] font-bold">Detect Gender</div>
-                            <a href="#" className="block mt-1 text-lg leading-tight text-black hover:underline">You can upload a file and we can detect the Gender for you</a>
+                            <div className="uppercase tracking-wide text-lg text-[#4051A3] font-bold">Detect Gender</div>
+                            <p className="text-lg font-semibold">You can detect the gender by uplaoding an image</p>
                         </div>
                     </div>
                 </div>
-                <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden m-6 cursor-pointer p-8">
+                <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden m-6  hover:bg-gray-100 p-8">
                     <div className="md:flex">
                         <div className="md:flex-shrink-0">
-                            <img className="h-48 w-full object-cover md:w-48" src="https://source.unsplash.com/random" alt="Card image" />
+                            <img className="h-48 w-full object-cover md:w-48" src={old} alt="Card image" />
                         </div>
                         <div className="p-8">
-                            <div className="uppercase tracking-wide text-sm text-[#4051A3] font-bold">Check if you still look the same</div>
-                            <a href="#" className="block mt-1 text-lg leading-tight text-black hover:underline">Upload your old and new image and check if you still look the same</a>
+                            <div className="uppercase tracking-wide text-lg text-[#4051A3] font-bold">Check if you still look the same</div>
+                            <p className="text-lg font-semibold">Check if you still looka as same as you were before</p>
                         </div>
                     </div>
                 </div>
-                <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden m-6 cursor-pointer p-8">
+                <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden m-6  hover:bg-gray-100 p-8">
                 <div className="md:flex">
                     <div className="md:flex-shrink-0">
-                        <img className="h-48 w-full object-cover md:w-48" src="https://source.unsplash.com/random" alt="Card image" />
+                        <img className="h-48 w-full object-cover md:w-48" src={age} alt="Card image" />
                     </div>
                     <div className="p-8">
-                        <div className="uppercase tracking-wide text-sm text-[#4051A3] font-bold">Detect Age</div>
-                        <a href="#" className="block mt-1 text-lg leading-tight text-black hover:underline">You can upload a file and we can detect the Age for you</a>
+                        <div className="uppercase tracking-wide text-lg text-[#4051A3] font-bold">Detect Age</div>
+                        <p className="text-lg font-semibold">You can detect the age from the image you upload</p>
                     </div>
                     </div>
                 </div>
