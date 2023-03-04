@@ -1,13 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({isLoggedIn}) => {
   return (
     <>
       <div className="flex justify-between bg-[#090E40]">
         <div>
           <ul className="flex justify-start p-6 font-bold text-xl">
             <li className="mr-6">
-              <a className="text-white text-4xl" href="#">
+              <a className="text-white text-4xl cursor-pointer" href="#">
                 FaceTrustAI
               </a>
             </li>
@@ -28,13 +29,37 @@ const Navbar = () => {
             </li> */}
           </ul>
         </div>
-        <div className="flex justify-end">
+        {isLoggedIn && <div className="flex justify-end">
           <ul className="flex justify-end p-6 font-bold text-2xl space-x-10">
             <li className="mr-6">
-              <a className="text-white hover:text-lightgreen" href="#">
-                Documents
-              </a>
+              <Link to="/face" className="text-white hover:text-lightgreen">
+                Face
+              </Link>
             </li>
+            <li className="mr-6">
+              <Link to="/gender" className="text-white hover:text-lightgreen">
+                Gender
+              </Link>
+            </li>
+            <li className="mr-6">
+              <Link to="/verify" className="text-white hover:text-lightgreen">
+                Verify
+              </Link>
+            </li>
+            <li className="mr-6">
+              <Link to="/age" className="text-white hover:text-lightgreen">
+                Age
+              </Link>
+            </li>
+            <li className="mr-6">
+              <Link to="/docs" className="text-white hover:text-lightgreen">
+                Docs
+              </Link>
+            </li>
+          </ul>
+        </div>}
+        {!isLoggedIn && <div className="flex justify-end">
+          <ul className="flex justify-end p-6 font-bold text-2xl space-x-10">
             <li className="mr-6">
               <a className="text-white hover:text-lightgreen" href="/signUp">
                 Sign Up
@@ -46,7 +71,7 @@ const Navbar = () => {
               </a>
             </li>
           </ul>
-        </div>
+        </div>}
       </div>
     </>
   );
