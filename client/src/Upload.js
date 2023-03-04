@@ -11,7 +11,8 @@ const Upload = () => {
 
   const uploadImage = () => {};
 
-  const handleUpload = () => {
+  const handleUpload = (e) => {
+    e.preventDefault();
     const Data = new FormData();
     Data.append("file", image);
     Data.append("upload_preset", "clash-of-codes");
@@ -30,13 +31,13 @@ const Upload = () => {
         fetch("http://127.0.0.1:8000/api/img/detect" ,{
           method: "POST",
           // mode: "no-cors",
-          cache: "no-cache",
-          
-          body: {url: data.url},
+          // cache: "no-cache",
           headers: {
             'Content-Type': 'application/json',
-            'Accept': 'application/json'
+            // 'Accept': 'application/json'
           },
+          body: JSON.stringify({url: data.url}),
+          
         })
           .then((response) => {
             return response.json();
