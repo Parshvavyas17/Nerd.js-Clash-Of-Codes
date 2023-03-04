@@ -4,7 +4,7 @@ import generateUniqueId
 
 def getImagePath(url):
     filename = generateUniqueId.getUniqueId()
-    filepath = './createdImages/' + str(filename) + '.png'
+    filepath = str(filename) + '.png'
     urllib.request.urlretrieve(url, filepath)
     return filepath
 

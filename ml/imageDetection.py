@@ -25,10 +25,10 @@ def detectFace(filepath):
     else:
         for (x, y, w, h) in results:
             cv2.rectangle(img, (x, y), (x+w, y+h), (0, 255, 0), 2)
-        # window_name = 'image'
-        # cv2.imshow(window_name, img)
-        # cv2.waitKey(0)
-        # cv2.destroyAllWindows()
+        window_name = 'image'
+        cv2.imshow(window_name, img)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
         cv2.imwrite(filepath, img)
         res['detected'] = True
         res['filePath'] = str(filepath)
