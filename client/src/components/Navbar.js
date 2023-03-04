@@ -3,12 +3,12 @@ import React from "react";
 const Navbar = () => {
   return (
     <>
-      <div className="flex justify-between bg-[#E4D9FF]">
+      <div className="flex justify-between bg-[#090E40]">
         <div>
           <ul className="flex justify-start p-6 font-bold text-xl">
             <li className="mr-6">
-              <a className="text-[#1E2749] hover:text-lightgreen" href="#">
-                Upload Image
+              <a className="text-white text-4xl" href="#">
+                FaceTrustAI
               </a>
             </li>
             {/* <li className="mr-6">
@@ -29,14 +29,14 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="flex justify-end">
-          <ul className="flex justify-end p-6 font-bold text-xl">
+          <ul className="flex justify-end p-6 font-bold text-2xl">
             <li className="mr-6">
-              <a className="text-[#1E2749] hover:text-lightgreen" href="/signUp">
+              <a className="text-white hover:text-lightgreen" href="/signUp">
                 Sign Up
               </a>
             </li>
             <li className="mr-6">
-              <a className="text-[#1E2749] hover:text-lightgreen" href="/login">
+              <a className="text-white hover:text-lightgreen" href="/login">
                 Login
               </a>
             </li>
