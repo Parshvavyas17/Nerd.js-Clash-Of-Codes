@@ -39,6 +39,7 @@ const Upload = () => {
           })
           .then((res) => {
             console.log(res);
+            window.location.href = res.url;
           })
           .catch((error) => console.log(error));
       })
