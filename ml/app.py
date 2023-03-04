@@ -28,7 +28,7 @@ def detect():
     url = jsonData['url']
     string = main.getDetectedImage(url)
     if string == "":
-        return "No Face Detected :("
+        return jsonify(url="No Face Detected :(")
     # return send_file(string, mimetype='image/png')
     res = jsonify(url=string)
     return res
