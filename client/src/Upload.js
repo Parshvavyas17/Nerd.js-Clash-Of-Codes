@@ -7,9 +7,6 @@ import { BsDatabaseAdd } from "react-icons/bs";
 
 const Upload = () => {
   const [image, setImage] = useState("");
-  const [url, setUrl] = useState("");
-
-  const uploadImage = () => {};
 
   const handleUpload = (e) => {
     e.preventDefault();
@@ -17,7 +14,6 @@ const Upload = () => {
     Data.append("file", image);
     Data.append("upload_preset", "clash-of-codes");
     Data.append("cloud_name", "dkjknjdfs");
-    // console.log(Data.file);
     fetch("https://api.cloudinary.com/v1_1/dkjknjdfs/image/upload", {
       method: "POST",
       body: Data,
@@ -28,16 +24,15 @@ const Upload = () => {
         const Data2 = new FormData();
         Data2.append("url", data.url);
         console.log("Data2: ", Data2);
-        fetch("http://127.0.0.1:8000/api/img/detect" ,{
+        fetch("http://127.0.0.1:8000/api/img/detect", {
           method: "POST",
           // mode: "no-cors",
           // cache: "no-cache",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
             // 'Accept': 'application/json'
           },
-          body: JSON.stringify({url: data.url}),
-          
+          body: JSON.stringify({ url: data.url }),
         })
           .then((response) => {
             return response.json();
@@ -58,15 +53,15 @@ const Upload = () => {
           Let the World Recognize You
         </p>
         <div className="text-center">
-          <div class="relative">
-            <div class="border-4 border-dotted border-gray-700 p-10 mx-64 mt-10 leading-loose mb-5">
+          <div className="relative">
+            <div className="border-4 border-dotted border-gray-700 p-10 mx-64 mt-10 leading-loose mb-5">
               <div className="flex">
                 <br />
                 <form>
                   {" "}
                   <input
                     type="file"
-                    class="absolute"
+                    className="absolute"
                     onChange={(e) => setImage(e.target.files[0])}
                     name="url"
                   />
@@ -75,7 +70,7 @@ const Upload = () => {
 
               <button
                 onClick={handleUpload}
-                class="px-16 py-4 text-white font-bold text-lg bg-[#4051A3] rounded-lg "
+                className="px-16 py-4 text-white font-bold text-lg bg-[#4051A3] rounded-lg "
               >
                 Upload Image
               </button>
@@ -117,8 +112,8 @@ const Upload = () => {
       <hr className="border border-gray-500 mt-10" />
 
       <div>
-        <footer class="bg-[#090E40] py-4 mt-24">
-          <div class="container mx-auto text-center text-white font-bold h-10">
+        <footer className="bg-[#090E40] py-4 mt-24">
+          <div className="container mx-auto text-center text-white font-bold h-10">
             <p>Our Website And the services we provide</p>
           </div>
         </footer>
