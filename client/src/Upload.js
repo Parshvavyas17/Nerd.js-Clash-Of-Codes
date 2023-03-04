@@ -16,9 +16,10 @@ const Upload = () => {
     })
       .then((resp) => resp.json())
       .then((data) => {
-        setUrl(data.url);
+        console.log(data.url);
       })
       .catch((err) => console.log(err));
+
   };
   return (
     <div>
@@ -30,8 +31,8 @@ const Upload = () => {
         <button onClick={handleUpload}>Upload</button>
       </div>
       <div>
-        <h1>Uploaded image will be displayed here</h1>
-        <img src={url} />
+        {/* <h1>Uploaded image will be displayed here</h1>
+        <img src={url} /> */}
       </div>
     </div>
   );
