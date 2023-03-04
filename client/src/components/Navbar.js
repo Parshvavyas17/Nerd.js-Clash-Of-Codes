@@ -29,7 +29,12 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="flex justify-end">
-          <ul className="flex justify-end p-6 font-bold text-2xl">
+          <ul className="flex justify-end p-6 font-bold text-2xl space-x-10">
+            <li className="mr-6">
+              <a className="text-white hover:text-lightgreen" href="#">
+                Documents
+              </a>
+            </li>
             <li className="mr-6">
               <a className="text-white hover:text-lightgreen" href="/signUp">
                 Sign Up
