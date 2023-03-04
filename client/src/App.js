@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar";
 import Login from "./pages/Login/Login";
 import SignUp from "./pages/Login/SignUp";
 import Upload from "./Upload";
-
+import Landing from "./pages/Login/Landing";
 
 function App() {
   return (
@@ -11,7 +11,8 @@ function App() {
     <Routes>
       <Route path="/" element={<Upload />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<SignUp/>} />
+      <Route path="/signup" element={<SignUp />} />
+      <Route path="/landing" element={<Landing />} />
     </Routes>
   </Router>
   );
