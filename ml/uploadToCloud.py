@@ -1,9 +1,12 @@
 import cloudinary
 import cloudinary.uploader
-import cloudinary.api
 
-cloudinary.config.update({
-    'cloud_name': os.environ.get('CLOUDINARY_CLOUD_NAME'),
-    'api_key': os.environ.get('CLOUDINARY_API_KEY'),
-    'api_secret': os.environ.get('CLOUDINARY_API_SECRET')
-})
+cloudinary.config(
+  cloud_name = "dtgthce4i",
+  api_key = "318433949989198",
+  api_secret = "_UMD9234Qbg_vlgZLurZbT99VUE",
+)
+
+response = cloudinary.uploader.upload("./images/anime.jpeg")
+
+print(response["secure_url"])
