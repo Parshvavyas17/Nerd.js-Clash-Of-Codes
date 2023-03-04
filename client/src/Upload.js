@@ -5,11 +5,12 @@ import { MdVerifiedUser } from "react-icons/md";
 import { TbCloudUpload, TbFaceId } from "react-icons/tb";
 import { BsDatabaseAdd } from "react-icons/bs";
 
-
-
 const Upload = () => {
   const [image, setImage] = useState("");
   const [url, setUrl] = useState("");
+
+  const uploadImage = () => {};
+
   const handleUpload = () => {
     const Data = new FormData();
     Data.append("file", image);
@@ -26,21 +27,24 @@ const Upload = () => {
         const Data2 = new FormData();
         Data2.append("url", data.url);
         console.log("Data2: ", Data2);
-        fetch("http://127.0.0.1:8000/api/img/detect" ,{
+        fetch("http://127.0.0.1:8000/api/img/detect", {
           method: "POST",
           body: data.url,
           headers: {
             "Content-Type": "application/json",
           },
-        }).then((response) => {
-          return response.json();
-        }).then((res) => {
-          console.log(res);
         })
-        .catch((error) => console.log(error))
+          .then((response) => {
+            return response.json();
+          })
+          .then((res) => {
+            console.log(res);
+          })
+          .catch((error) => console.log(error));
       })
       .catch((err) => console.log(err));
   };
+
   return (
     <div className="bg-[#E4D9FF]">
       <Navbar />
@@ -80,39 +84,39 @@ const Upload = () => {
       </div>
 
       <div className=" flex mt-10">
-                <div className="w-1/4">
-                  <MdVerifiedUser className="flex ml-44 cursor-pointer " size="70" />
-                  <div className="text-black font-bold text-lg text-center">
-                    Secure your Documents
-                  </div>
-                </div>
-                <div className="w-1/4">
-                  <TbCloudUpload className="flex ml-44 cursor-pointer" size="70" />
-                  <div className="text-black font-bold text-lg text-center">
-                    Upload Your Documents in seconds
-                  </div>
-                </div>
-                <div className="w-1/4">
-                  <TbFaceId className="flex ml-44 cursor-pointer " size="70" />
-                  <div className="text-black font-bold text-lg text-center">
-                    Identify your face
-                  </div>
-                </div>
-                <div className="w-1/4">
-                  <BsDatabaseAdd className="flex ml-44 cursor-pointer " size="70" />
-                  <div className="text-black font-bold text-lg text-center">
-                    Keep A record of your data
-                  </div>
-                </div>
-              </div>
-              <hr className="border border-gray-500 mt-10" />
-            
-            <div>
-              <footer class="bg-[#090E40] py-4 mt-24">
-                <div class="container mx-auto text-center text-white font-bold h-10">
-                  <p>Our Website And the services we provide</p>
-                </div>
-              </footer>
+        <div className="w-1/4">
+          <MdVerifiedUser className="flex ml-44 cursor-pointer " size="70" />
+          <div className="text-black font-bold text-lg text-center">
+            Secure your Documents
+          </div>
+        </div>
+        <div className="w-1/4">
+          <TbCloudUpload className="flex ml-44 cursor-pointer" size="70" />
+          <div className="text-black font-bold text-lg text-center">
+            Upload Your Documents in seconds
+          </div>
+        </div>
+        <div className="w-1/4">
+          <TbFaceId className="flex ml-44 cursor-pointer " size="70" />
+          <div className="text-black font-bold text-lg text-center">
+            Identify your face
+          </div>
+        </div>
+        <div className="w-1/4">
+          <BsDatabaseAdd className="flex ml-44 cursor-pointer " size="70" />
+          <div className="text-black font-bold text-lg text-center">
+            Keep A record of your data
+          </div>
+        </div>
+      </div>
+      <hr className="border border-gray-500 mt-10" />
+
+      <div>
+        <footer class="bg-[#090E40] py-4 mt-24">
+          <div class="container mx-auto text-center text-white font-bold h-10">
+            <p>Our Website And the services we provide</p>
+          </div>
+        </footer>
       </div>
     </div>
   );

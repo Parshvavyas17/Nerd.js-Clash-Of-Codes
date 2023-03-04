@@ -30,7 +30,7 @@ def detect():
     if string == "":
         return "No Face Detected :("
     # return send_file(string, mimetype='image/png')
-    return (string)
+    return jsonify(string)
 
 
 if __name__ == '__main__':
