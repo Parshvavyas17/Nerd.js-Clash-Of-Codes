@@ -29,7 +29,8 @@ def detect():
     string = main.getDetectedImage(url)
     if string == "":
         return "No Face Detected :("
-    return send_file(string, mimetype='image/png')
+    # return send_file(string, mimetype='image/png')
+    return (string)
 
 
 if __name__ == '__main__':
