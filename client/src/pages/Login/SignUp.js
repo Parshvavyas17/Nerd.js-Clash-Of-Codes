@@ -29,7 +29,11 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${url}/signup`, {email, name, password});
+      const response = await axios.post(`${url}/signup`, {
+        email,
+        name,
+        password,
+      });
       console.log(response.data);
       // console.log(localStorage.getItem("userType"));
       console.log(localStorage.getItem("token"));
@@ -58,7 +62,7 @@ const SignUp = () => {
       </h6>
       <div className="px-16 py-16 bg-white mx-40 mt-6 mb-6 h-[100%] rounded-3xl flex justify-center">
         <div className="w-1/2 h-4/5 mt-10">
-          <img src={verify3} className="h-full w-4/5 ml-14" />
+          <img src={verify3} className="h-full w-4/5 ml-14" alt="" />
         </div>
         <div className=" w-1/2 h-4/5">
           <div className="font-bold  ml-4 text-4xl text-center pb-6">
@@ -93,15 +97,17 @@ const SignUp = () => {
           </div>
           <div className="w-2/3 h-12 bg-gray-200 rounded-full ml-32 mt-4 border-4 border-[#4051A3]">
             <input
-              type=" text"
+              type="password"
               className="flex-grow w-3/4 outline-none ml-2 mt-1  bg-transparent h-8 text-lg font-semibold"
               onChange={handlePasswordChange}
               value={password}
             ></input>
           </div>
           <div className=" ml-52 mt-10 w-32 h-12 ">
-            <button className="bg-[#4051A3] w-64 h-12 rounded-full text-lg  text-white font-extrabold"
-            onClick={handleSubmit}>
+            <button
+              className="bg-[#4051A3] w-64 h-12 rounded-full text-lg  text-white font-extrabold"
+              onClick={handleSubmit}
+            >
               Submit
             </button>
           </div>

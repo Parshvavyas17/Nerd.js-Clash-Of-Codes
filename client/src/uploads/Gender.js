@@ -95,6 +95,7 @@ function Gender() {
                   <input
                     type="text"
                     onChange={handleUrl}
+                    value={url}
                     name="url"
                     placeholder="Enter the URL of the image to be processed"
                   />{" "}
@@ -103,8 +104,7 @@ function Gender() {
                     type="file"
                     className="absolute"
                     onChange={(e) => setImage(e.target.files[0])}
-                    name="url"
-                    value={url}
+                    name="images"
                   />
                 </form>
               </div>

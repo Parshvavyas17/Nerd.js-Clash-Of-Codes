@@ -98,6 +98,7 @@ const Face = () => {
                   <input
                     type="text"
                     onChange={handleUrl}
+                    value={url}
                     name="url"
                     placeholder="Enter the URL of the image to be processed"
                   />{" "}
@@ -106,8 +107,7 @@ const Face = () => {
                     type="file"
                     className="absolute"
                     onChange={(e) => setImage(e.target.files[0])}
-                    name="url"
-                    value={url}
+                    name="image"
                   />
                 </form>
               </div>
