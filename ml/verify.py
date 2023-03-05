@@ -2,6 +2,7 @@ from deepface import DeepFace
 import cv2
 import matplotlib.pyplot as plt
 
+
 def verify(img1_path, img2_path, model_name):
     img1 = cv2.imread(img1_path)
     img2 = cv2.imread(img2_path)
@@ -18,11 +19,4 @@ def verify(img1_path, img2_path, model_name):
     else:
         print('They are not the same')
 
-verify('ronaldo2.jfif', 'ronaldo1.jfif', model_name = "SFace")
-
-
-
-
-        
-
-
+# verify('ronaldo2.jfif', 'ronaldo1.jfif', model_name = "SFace")

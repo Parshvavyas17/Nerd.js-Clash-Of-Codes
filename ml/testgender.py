@@ -3,7 +3,7 @@ from tensorflow.keras.preprocessing import image
 from tensorflow.keras.models import load_model
 
 
-model = load_model('ml\model.h5')
+model = load_model('model.h5')
 
 # test_image = image.load_img('richa.png', target_size=(64, 64))
 # test_image = image.img_to_array(test_image)

@@ -37,7 +37,7 @@ def getGender(url):
 def getVerification(url1, url2):
     filepath1 = retrieveImage.getImagePath(url1)
     filepath2 = retrieveImage.getImagePath(url2)
-    string = verification.verify(filepath1, filepath2)
+    string = verification.verify(filepath1, filepath2, "SFace")
     os.remove(filepath1)
     os.remove(filepath2)
     return string
