@@ -31,7 +31,7 @@ function Verify() {
         setImage1("");
         setUrl1("");
         setUrl2("")
-        alert(res.isSame ? "SAME PERSON": "DIFFERENT");
+        alert(res.isSame);
       })
       .catch((error) => console.log(error));
   };
