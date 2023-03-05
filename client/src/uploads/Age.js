@@ -30,8 +30,9 @@ function Age() {
         console.log(res);
         setImage("");
         setUrl("");
-        if (res.url === "No Face Detected :(") alert("No face detected");
-        else window.open(res.url);
+        alert(res.age);
+        // if (res.url === "No Face Detected :(") alert("No face detected");
+        // else window.open(res.url);
       })
       .catch((error) => console.log(error));
   };
