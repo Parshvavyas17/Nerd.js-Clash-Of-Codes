@@ -49,5 +49,14 @@ def age():
     return jsonify(age=years)
 
 
+@app.route('/api/img/verify', methods=['POST'])
+def age():
+    jsonData = request.get_json()
+    url1 = jsonData['url1']
+    url2 = jsonData['url2']
+    isSame = main.getVerification(url1, url2)
+    return jsonify(isSame=isSame)
+
+
 if __name__ == '__main__':
     app.run(debug=True)
