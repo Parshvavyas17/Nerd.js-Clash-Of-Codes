@@ -20,5 +20,5 @@ def verify(img1_path, img2_path, model_name):
         return 'They are not the same'
 
 
-ans = verify('image1.jpeg', 'image1.jpeg', model_name="SFace")
-print(ans)
+# ans = verify('image1.jpeg', 'image1.jpeg', model_name="SFace")
+# print(ans)

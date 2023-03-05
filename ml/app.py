@@ -50,7 +50,7 @@ def age():
 
 
 @app.route('/api/img/verify', methods=['POST'])
-def age():
+def verify():
     jsonData = request.get_json()
     url1 = jsonData['url1']
     url2 = jsonData['url2']
