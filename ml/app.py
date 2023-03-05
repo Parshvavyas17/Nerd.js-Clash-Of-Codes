@@ -38,7 +38,7 @@ def gender():
     jsonData = request.get_json()
     url = jsonData['url']
     gen = main.getGender(url)
-    return gen
+    return jsonify(gender=gen)
 
 
 @app.route('/api/img/age', methods=['POST'])
@@ -46,7 +46,7 @@ def age():
     jsonData = request.get_json()
     url = jsonData['url']
     years = main.getAge(url)
-    return years
+    return jsonify(age=years)
 
 
 if __name__ == '__main__':
