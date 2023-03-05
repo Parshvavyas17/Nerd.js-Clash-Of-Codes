@@ -6,6 +6,31 @@ import { BsDatabaseAdd } from "react-icons/bs";
 
 function Gender() {
   const [image, setImage] = useState("");
+  const [url, setUrl] = useState("");
+
+  const handleUrlUpload = (e) => {
+    e.preventDefault();
+    fetch("http://127.0.0.1:8000/api/img/gender", {
+      method: "POST",
+      // mode: "no-cors",
+      // cache: "no-cache",
+      headers: {
+        "Content-Type": "application/json",
+        // 'Accept': 'application/json'
+      },
+      body: JSON.stringify({ url }),
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((res) => {
+        console.log(res);
+        setImage("");
+        setUrl("");
+        alert(res.gender);
+      })
+      .catch((error) => console.log(error));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -47,6 +72,10 @@ function Gender() {
       .catch((err) => console.log(err));
   };
 
+  const handleUrl = (e) => {
+    setUrl(e.target.value);
+  };
+
   return (
     <div className="bg-[#E4D9FF]">
       <Navbar isLoggedIn />
@@ -63,18 +92,31 @@ function Gender() {
               <div className="flex">
                 <br />
                 <form>
-                  {" "}
+                  <input
+                    type="text"
+                    onChange={handleUrl}
+                    name="url"
+                    placeholder="Enter the URL of the image to be processed"
+                  />{" "}
+                  <br />
                   <input
                     type="file"
                     className="absolute"
                     onChange={(e) => setImage(e.target.files[0])}
                     name="url"
+                    value={url}
                   />
                 </form>
               </div>
 
               <button
-                onClick={handleSubmit}
+                onClick={
+                  image
+                    ? handleSubmit
+                    : url
+                    ? handleUrlUpload
+                    : () => alert("Pls upload image or enter image url")
+                }
                 className="px-16 py-4 text-white font-bold text-lg bg-[#4051A3] rounded-lg "
               >
                 Upload Image

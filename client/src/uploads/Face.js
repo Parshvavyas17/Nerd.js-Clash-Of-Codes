@@ -12,25 +12,27 @@ const Face = () => {
   const handleUrlUpload = (e) => {
     e.preventDefault();
     fetch("http://127.0.0.1:8000/api/img/detect", {
-          method: "POST",
-          // mode: "no-cors",
-          // cache: "no-cache",
-          headers: {
-            "Content-Type": "application/json",
-            // 'Accept': 'application/json'
-          },
-          body: JSON.stringify({ url }),
-        })
-          .then((response) => {
-            return response.json();
-          })
-          .then((res) => {
-            console.log(res);
-            if (res.url === "No Face Detected :(") alert("No face detected");
-            else window.location.href = res.url;
-          })
-          .catch((error) => console.log(error));
-  }
+      method: "POST",
+      // mode: "no-cors",
+      // cache: "no-cache",
+      headers: {
+        "Content-Type": "application/json",
+        // 'Accept': 'application/json'
+      },
+      body: JSON.stringify({ url }),
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((res) => {
+        console.log(res);
+        setImage("");
+        setUrl("");
+        if (res.url === "No Face Detected :(") alert("No face detected");
+        else window.open(res.url);
+      })
+      .catch((error) => console.log(error));
+  };
 
   const handleUpload = (e) => {
     e.preventDefault();
@@ -63,8 +65,10 @@ const Face = () => {
           })
           .then((res) => {
             console.log(res);
+            setImage("");
+            setUrl("");
             if (res.url === "No Face Detected :(") alert("No face detected");
-            else window.location.href = res.url;
+            else window.open(res.url);
           })
           .catch((error) => console.log(error));
       })
@@ -82,26 +86,40 @@ const Face = () => {
         <h1 className="text-4xl text-black font-bold text-center p-10 ">
           Let the World Recognize You
         </h1>
-        <p className="text-[#4051A3] text-3xl font-bold mx-64 text-center">- Detect Face</p>
+        <p className="text-[#4051A3] text-3xl font-bold mx-64 text-center">
+          - Detect Face
+        </p>
         <div className="text-center">
           <div className="relative">
             <div className="border-4 border-dotted border-gray-700 p-10 mx-64 mt-10 leading-loose mb-5">
-              <div className="flex">  
+              <div className="flex">
                 <br />
                 <form>
-                  <input type="text" onChange={handleUrl} name="url" placeholder="Enter the URL of the image to be processed"/>
-                  {" "}
+                  <input
+                    type="text"
+                    onChange={handleUrl}
+                    name="url"
+                    placeholder="Enter the URL of the image to be processed"
+                  />{" "}
+                  <br />
                   <input
                     type="file"
                     className="absolute"
                     onChange={(e) => setImage(e.target.files[0])}
                     name="url"
+                    value={url}
                   />
                 </form>
               </div>
 
               <button
-                onClick={(image) ? handleUpload : (url) ? handleUrlUpload : () => alert("Pls upload image or enter image url")}
+                onClick={
+                  image
+                    ? handleUpload
+                    : url
+                    ? handleUrlUpload
+                    : () => alert("Pls upload image or enter image url")
+                }
                 className="px-16 py-4 text-white font-bold text-lg bg-[#4051A3] rounded-lg "
               >
                 Upload Image
