@@ -6,12 +6,14 @@ import { BsDatabaseAdd } from "react-icons/bs";
 import { useState } from "react";
 
 function Verify() {
-  const [image, setImage] = useState("");
-  const [url, setUrl] = useState("");
+  const [image1, setImage1] = useState("");
+  const [url1, setUrl1] = useState("");
+  const [image2, setImage2] = useState("");
+  const [url2, setUrl2] = useState("");
 
   const handleUrlUpload = (e) => {
     e.preventDefault();
-    fetch("http://127.0.0.1:8000/api/img/gender", {
+    fetch("http://127.0.0.1:8000/api/img/verify", {
       method: "POST",
       // mode: "no-cors",
       // cache: "no-cache",
@@ -19,63 +21,64 @@ function Verify() {
         "Content-Type": "application/json",
         // 'Accept': 'application/json'
       },
-      body: JSON.stringify({ url }),
+      body: JSON.stringify({ url1, url2 }),
     })
       .then((response) => {
         return response.json();
       })
       .then((res) => {
         console.log(res);
-        setImage("");
-        setUrl("");
-        alert(res.gender);
+        setImage1("");
+        setUrl1("");
+        setUrl2("")
+        alert(res.isSame ? "SAME PERSON": "DIFFERENT");
       })
       .catch((error) => console.log(error));
   };
 
-  const handleUpload = (e) => {
-    e.preventDefault();
-    const Data = new FormData();
-    Data.append("file", image);
-    Data.append("upload_preset", "clash-of-codes");
-    Data.append("cloud_name", "dkjknjdfs");
-    fetch("https://api.cloudinary.com/v1_1/dkjknjdfs/image/upload", {
-      method: "POST",
-      body: Data,
-    })
-      .then((resp) => resp.json())
-      .then((data) => {
-        console.log(data.url);
-        const Data2 = new FormData();
-        Data2.append("url", data.url);
-        console.log("Data2: ", Data2);
-        fetch("http://127.0.0.1:8000/api/img/gender", {
-          method: "POST",
-          // mode: "no-cors",
-          // cache: "no-cache",
-          headers: {
-            "Content-Type": "application/json",
-            // 'Accept': 'application/json'
-          },
-          body: JSON.stringify({ url: data.url }),
-        })
-          .then((response) => {
-            return response.json();
-          })
-          .then((res) => {
-            console.log(res);
-            alert(res.gender);
-            // if (res.url === "No Face Detected :(") alert("No face detected");
-            // else window.location.href = res.url;
-          })
-          .catch((error) => console.log(error));
-      })
-      .catch((err) => console.log(err));
-  };
+  // const handleUpload = (e) => {
+  //   e.preventDefault();
+  //   const Data = new FormData();
+  //   Data.append("file", image);
+  //   Data.append("upload_preset", "clash-of-codes");
+  //   Data.append("cloud_name", "dkjknjdfs");
+  //   fetch("https://api.cloudinary.com/v1_1/dkjknjdfs/image/upload", {
+  //     method: "POST",
+  //     body: Data,
+  //   })
+  //     .then((resp) => resp.json())
+  //     .then((data) => {
+  //       console.log(data.url);
+  //       const Data2 = new FormData();
+  //       Data2.append("url", data.url);
+  //       console.log("Data2: ", Data2);
+  //       fetch("http://127.0.0.1:8000/api/img/verify", {
+  //         method: "POST",
+  //         // mode: "no-cors",
+  //         // cache: "no-cache",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //           // 'Accept': 'application/json'
+  //         },
+  //         body: JSON.stringify({ url1: temp1, url2: temp2 }),
+  //       })
+  //         .then((response) => {
+  //           return response.json();
+  //         })
+  //         .then((res) => {
+  //           console.log(res);
+  //           alert(res.isSame ? "SAME": "DIFFERENT");
+  //           // if (res.url === "No Face Detected :(") alert("No face detected");
+  //           // else window.location.href = res.url;
+  //         })
+  //         .catch((error) => console.log(error));
+  //     })
+  //     .catch((err) => console.log(err));
+  // };
 
-  const handleUrl = (e) => {
-    setUrl(e.target.value);
-  };
+  // const handleUrl1 = (e) => {
+  //   setUrl(e.target.value);
+  // };
   return (
     <div className="bg-[#E4D9FF]">
       <Navbar isLoggedIn />
@@ -95,50 +98,40 @@ function Verify() {
                     {" "}
                     <input
                       type="text"
-                      onChange={handleUrl}
-                      name="url"
-                      placeholder="Enter the URL of the image to be processed"
+                      onChange={(e)=>setUrl1(e.target.value)}
+                      name="url1"
+                      placeholder="Enter the URL of the first image to be processed"
                     />
-                    <input
+                    {/* <input
                       type="file"
-                      onChange={(e) => setImage(e.target.files[0])}
+                      onChange={(e) => setImage1(e.target.files[0])}
                       name="url"
-                    />
+                    /> */}
                   </form>
                   <br />
                   <br />{" "}
-                  <button
-                    onClick={
-                      image
-                        ? handleUpload
-                        : url
-                        ? handleUrlUpload
-                        : () => alert("Pls upload image or enter image url")
-                    }
-                    className="px-16 py-4 text-white font-bold text-lg bg-[#4051A3] rounded-lg "
-                  >
-                    Upload Image
-                  </button>
+                  
                 </div>
                 <div className="w-1/2">
                   <form>
                     <input
                       type="text"
-                      onChange={handleUrl}
-                      name="url"
-                      placeholder="Enter the URL of the image to be processed"
+                      onChange={(e) => setUrl2(e.target.value)}
+                      name="url2"
+                      placeholder="Enter the URL of the second image to be processed"
                     />{" "}
-                    <input
+                    {/* <input
                       type="file"
-                      // onChange={(e) => setImage(e.target.files[0])}
+                      // onChange={(e) => setImage1(e.target.files[0])}
                       name="url"
-                    />
+                    /> */}
                   </form>
                   <br />
                   <br />
                   <button
                     // onClick={handleUpload}
                     className="px-16 py-4 text-white font-bold text-lg bg-[#4051A3] rounded-lg "
+                    onClick={handleUrlUpload}
                   >
                     Upload Image
                   </button>
@@ -152,7 +145,7 @@ function Verify() {
                                     <input
                                         type="file"
                                         className="absolute"
-                                        // onChange={(e) => setImage(e.target.files[0])}
+                                        // onChange={(e) => setImage1(e.target.files[0])}
                                         name="url"
                                     />
                                 </form>
