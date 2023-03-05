@@ -29,9 +29,24 @@ def detect():
     string = main.getDetectedImage(url)
     if string == "":
         return jsonify(url="No Face Detected :(")
-    # return send_file(string, mimetype='image/png')
     res = jsonify(url=string)
     return res
+
+
+@app.route('/api/img/gender', methods=['POST'])
+def gender():
+    jsonData = request.get_json()
+    url = jsonData['url']
+    gen = main.getGender(url)
+    return gen
+
+
+@app.route('/api/img/age', methods=['POST'])
+def age():
+    jsonData = request.get_json()
+    url = jsonData['url']
+    years = main.getAge(url)
+    return years
 
 
 if __name__ == '__main__':

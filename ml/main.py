@@ -2,6 +2,8 @@ import retrieveImage
 import imageDetection
 import uploadToCloud
 import os
+import detectAge
+import testgender
 
 
 def getDetectedImage(url):
@@ -17,5 +19,15 @@ def getDetectedImage(url):
         return ""
 
 
-ans = getDetectedImage(
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK8EKMK7YRQ4EUAtthGEOtbYyKPvGfggGbmw&usqp=CAU')
+def getAge(url):
+    filepath = retrieveImage.getImagePath(url)
+    age = detectAge.predictAge(filepath)
+    os.remove(filepath)
+    return age
+
+
+def getGender(url):
+    filepath = retrieveImage.getImagePath(url)
+    gender = testgender.predictGender(filepath)
+    os.remove(filepath)
+    return gender
