@@ -6,9 +6,7 @@ import { BsDatabaseAdd } from "react-icons/bs";
 import { useState } from "react";
 
 function Verify() {
-  const [image1, setImage1] = useState("");
   const [url1, setUrl1] = useState("");
-  const [image2, setImage2] = useState("");
   const [url2, setUrl2] = useState("");
 
   const handleUrlUpload = (e) => {
@@ -28,9 +26,8 @@ function Verify() {
       })
       .then((res) => {
         console.log(res);
-        setImage1("");
         setUrl1("");
-        setUrl2("")
+        setUrl2("");
         alert(res.isSame);
       })
       .catch((error) => console.log(error));
@@ -98,7 +95,7 @@ function Verify() {
                     {" "}
                     <input
                       type="text"
-                      onChange={(e)=>setUrl1(e.target.value)}
+                      onChange={(e) => setUrl1(e.target.value)}
                       name="url1"
                       placeholder="Enter the URL of the first image to be processed"
                     />
@@ -110,7 +107,6 @@ function Verify() {
                   </form>
                   <br />
                   <br />{" "}
-                  
                 </div>
                 <div className="w-1/2">
                   <form>
