@@ -92,12 +92,13 @@ function Verify() {
               <div className="flex">
                 <div className="w-1/2">
                   <form>
-                  <input
-                    type="text"
-                    onChange={handleUrl}
-                    name="url"
-                    placeholder="Enter the URL of the image to be processed"
-                  />{" "}
+                    {" "}
+                    <input
+                      type="text"
+                      onChange={handleUrl}
+                      name="url"
+                      placeholder="Enter the URL of the image to be processed"
+                    />
                     <input
                       type="file"
                       onChange={(e) => setImage(e.target.files[0])}
@@ -105,15 +106,15 @@ function Verify() {
                     />
                   </form>
                   <br />
-                  <br />
+                  <br />{" "}
                   <button
                     onClick={
-                        image
-                          ? handleUpload
-                          : url
-                          ? handleUrlUpload
-                          : () => alert("Pls upload image or enter image url")
-                      }
+                      image
+                        ? handleUpload
+                        : url
+                        ? handleUrlUpload
+                        : () => alert("Pls upload image or enter image url")
+                    }
                     className="px-16 py-4 text-white font-bold text-lg bg-[#4051A3] rounded-lg "
                   >
                     Upload Image
@@ -121,7 +122,12 @@ function Verify() {
                 </div>
                 <div className="w-1/2">
                   <form>
-                    {" "}
+                    <input
+                      type="text"
+                      onChange={handleUrl}
+                      name="url"
+                      placeholder="Enter the URL of the image to be processed"
+                    />{" "}
                     <input
                       type="file"
                       // onChange={(e) => setImage(e.target.files[0])}

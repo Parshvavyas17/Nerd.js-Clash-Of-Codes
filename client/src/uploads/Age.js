@@ -36,7 +36,6 @@ function Age() {
       .catch((error) => console.log(error));
   };
 
-
   const handleUpload = (e) => {
     e.preventDefault();
     const Data = new FormData();
@@ -68,7 +67,7 @@ function Age() {
           })
           .then((res) => {
             console.log(res);
-            alert(res.gender);
+            alert(res.age);
             // if (res.url === "No Face Detected :(") alert("No face detected");
             // else window.location.href = res.url;
           })
@@ -93,7 +92,7 @@ function Age() {
               <div className="flex">
                 <br />
                 <form>
-                <input
+                  <input
                     type="text"
                     onChange={handleUrl}
                     name="url"
@@ -109,15 +108,14 @@ function Age() {
               </div>
 
               <button
-               onClick={
-                image
-                  ? handleUpload
-                  : url
-                  ? handleUrlUpload
-                  : () => alert("Pls upload image or enter image url")
-              }
+                onClick={
+                  image
+                    ? handleUpload
+                    : url
+                    ? handleUrlUpload
+                    : () => alert("Pls upload image or enter image url")
+                }
                 className="px-16 py-4 text-white font-bold text-lg bg-[#4051A3] rounded-lg "
-                
               >
                 Upload Image 1
               </button>
