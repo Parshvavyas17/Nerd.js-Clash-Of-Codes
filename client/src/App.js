@@ -7,6 +7,7 @@ import Face from "./uploads/Face";
 import Gender from "./uploads/Gender";
 import Verify from "./uploads/Verify";
 import Age from "./uploads/Age";
+import Docs from "./pages/Login/Docs";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route path="/gender" element={<Gender />} />
       <Route path="/verify" element={<Verify />} />
       <Route path="/age" element={<Age />} />
+      <Route path="/docs" element={<Docs />} />
     </Routes>
   </Router>
   );
